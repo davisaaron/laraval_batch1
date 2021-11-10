@@ -19,4 +19,3 @@ Route::get('/', function () {
 });
 
 //Route::resource('employees',EmployeeController::class);
-Route::resource('employees',EmployeeController::class);
