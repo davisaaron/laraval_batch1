@@ -4,7 +4,7 @@
 
 
 
-<form action="{{route('employees.store')}}" method=post>
+<form action="{{route('employees.index')}}" method=post>
     @csrf
   <label for="fname">First name:</label>
   <input type="text" id="fname" name="fname" value=""><br>

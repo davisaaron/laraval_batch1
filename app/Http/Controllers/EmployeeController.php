@@ -15,6 +15,9 @@ class EmployeeController extends Controller
     public function index()
     {
         //
+        $employee=Employee::all();
+        //return $employee;
+        return view('employee.index',compact('employee'));
     }
 
     /**
@@ -49,8 +52,9 @@ class EmployeeController extends Controller
         $employee->salary=$salary;
 
         $employee->save();
-
-        return $employee;
+        $employee=Employee::all();
+        return view('employee.index',compact('employee'));
+       // return $employee;
     }
 
     /**
