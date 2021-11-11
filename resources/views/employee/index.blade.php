@@ -15,6 +15,7 @@
         <th>Last_Name</th>
         <th>DOB</th>
         <th>Salary</th>
+        <th colspan="3">Action</th>
     @foreach($employee as $employee )
     <tr>
         <td>{{$employee->id}}</td> 
@@ -22,6 +23,9 @@
         <td>{{$employee->last_name}}</td> 
         <td>{{$employee->dob}}</td>
         <td>{{$employee->salary}}</td>
+        <td><a href="{{route('employees.show',$employee->id)}}">show</a></td>
+        <td><a href="{{route('employees.edit',$employee->id)}}">Edit</a></td>
+        <td><a href="{{route('employees.show',$employee->id)}}">Delete</a></td>
     </tr>
     
     @endforeach
