@@ -28,7 +28,7 @@
         <td>
             <form action="{{route('employees.destroy',$employee->id)}}" method="post">
                 @csrf
-                @method('delete');
+                @method('delete')
                 <input type="submit" value="Delete">
             </form>
         </td>

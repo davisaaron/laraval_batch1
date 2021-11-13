@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::get('/', function () {
 
 //Route::resource('employees',EmployeeController::class);
 Route::resource('employees',EmployeeController::class);
+Route::resource('students',StudentController::class);
