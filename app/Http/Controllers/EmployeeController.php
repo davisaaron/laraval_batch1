@@ -52,6 +52,7 @@ class EmployeeController extends Controller
         $employee->salary=$salary;
 
         $employee->save();
+      //  return redirect()->route('employee.index');
         $employee=Employee::all();
         return view('employee.index',compact('employee'));
        // return $employee;
@@ -112,6 +113,7 @@ class EmployeeController extends Controller
 
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -121,5 +123,11 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         //
+        
+        $employee=Employee::find($id);
+        $employee->delete();
+        return redirect()->route('employees.index');
+     //  return "delete";
+       // return view('employee.index');
     }
 }

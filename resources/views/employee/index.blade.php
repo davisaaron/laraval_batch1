@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Employee List</h1>
-   
+   <button><a href="{{route('employees.create')}}">Create New</a></button><br><br>
     <table border="1">
         <th>ID</th>
         <th>First_Name</th>
@@ -25,8 +25,13 @@
         <td>{{$employee->salary}}</td>
         <td><a href="{{route('employees.show',$employee->id)}}">show</a></td>
         <td><a href="{{route('employees.edit',$employee->id)}}">Edit</a></td>
-        <td><a href="{{route('employees.show',$employee->id)}}">Delete</a></td>
-    </tr>
+        <td>
+            <form action="{{route('employees.destroy',$employee->id)}}" method="post">
+                @csrf
+                @method('delete');
+                <input type="submit" value="Delete">
+            </form>
+        </td>
     
     @endforeach
     </table>
