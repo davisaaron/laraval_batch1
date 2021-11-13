@@ -46,11 +46,7 @@ class StudentController extends Controller
         $gender=$request->input('gender');
         $grade=$request->input('grade');
         $address=$request->input('address');
-        //$subject=$request->input('subject1');
-        $subject = $request->all();
-        $subject['subject'] = $request->input('subject');
-        Student::create($subject);
-        
+        $subject1=$request->input('subject1');
         $dob=$request->input('dob');
         $email=$request->input('email');
         $phone=$request->input('phone');
@@ -62,7 +58,7 @@ class StudentController extends Controller
         $student->gender=$gender;
         $student->grade=$grade;
         $student->address=$address;
-        $student->subject=$subject;
+        $student->subject=$subject1;
         $student->dob=$dob;
         $student->email=$email;
         $student->mobile=$phone;

@@ -31,12 +31,12 @@
 	<textarea id="address" name="address"></textarea><br><br>
 
   <label for="subject">Subject</label><br>
-  <input type="checkbox" id="subject1" name="subject[]" value="maths">
+  <input type="checkbox" id="subject1" name="subject1" value="maths">
   <label for="subject1"> Maths</label><br>
-  <input type="checkbox" id="subject2" name="subject[]" value="science">
-  <label for="subject2"> Science</label><br>
-  <input type="checkbox" id="subject3" name="subject[]" value="history">
-  <label for="subject3"> History</label><br><br>
+  <input type="checkbox" id="subject2" name="subject2" value="science">
+  <label for="subject1"> Science</label><br>
+  <input type="checkbox" id="subject3" name="subject3" value="history">
+  <label for="subject1"> History</label><br><br>
 
   <label for="dob">DOB :</label>
   <input type="date" id="dob" name="dob" value=""><br><br>
