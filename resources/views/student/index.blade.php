@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Employee List</h1>
+    <h1>Student List</h1>
    <button><a href="{{route('students.create')}}">Create New</a></button><br><br>
     <table border="1">
         <th>ID</th>
@@ -39,7 +39,8 @@
             <form action="{{route('students.destroy',$student->id)}}" method="post">
                 @csrf
                 @method('delete')
-                <input type="submit" value="Delete">
+                <!-- //<input type="submit" value="Delete"> -->
+                <button type="submit" class="btn btn-danger btn-sm" onclick="if(!confirm('Are you sure want to delete this record?')){ return false; }">delete</button>
             </form>
         </td>
     

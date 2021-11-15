@@ -46,7 +46,8 @@ class StudentController extends Controller
         $gender=$request->input('gender');
         $grade=$request->input('grade');
         $address=$request->input('address');
-        $subject1=$request->input('subject1');
+        $subject=json_encode($request['subject']);
+        
         $dob=$request->input('dob');
         $email=$request->input('email');
         $phone=$request->input('phone');
@@ -58,7 +59,7 @@ class StudentController extends Controller
         $student->gender=$gender;
         $student->grade=$grade;
         $student->address=$address;
-        $student->subject=$subject1;
+        $student->subject = $subject;;
         $student->dob=$dob;
         $student->email=$email;
         $student->mobile=$phone;
@@ -112,7 +113,8 @@ class StudentController extends Controller
         $gender=$request->input('gender');
         $grade=$request->input('grade');
         $address=$request->input('address');
-        $subject1=$request->input('subject1');
+        $subject=json_encode($request->input('subject'));
+        
         $dob=$request->input('dob');
         $email=$request->input('email');
         $phone=$request->input('phone');
@@ -124,7 +126,7 @@ class StudentController extends Controller
         $student->gender=$gender;
         $student->grade=$grade;
         $student->address=$address;
-        $student->subject=$subject1;
+        $student->subject = $subject;
         $student->dob=$dob;
         $student->email=$email;
         $student->mobile=$phone;

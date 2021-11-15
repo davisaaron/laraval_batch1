@@ -31,14 +31,14 @@
 
   <label for="address">Address</label>
 	<textarea id="address" name="address" value="">{{$student->address}}</textarea><br><br>
-
-  <label for="subject">Subject</label><br>
-  <input type="checkbox" id="subject1" name="subject1" value="maths">
-  <label for="subject1"> Maths</label><br>
-  <input type="checkbox" id="subject2" name="subject2" value="science">
-  <label for="subject1"> Science</label><br>
-  <input type="checkbox" id="subject3" name="subject3" value="history">
-  <label for="subject1"> History</label><br><br>
+  {{-- {{$subjects = json_decode($student->subject);}}  --}}
+  <label for="Subjects">Subjects</label><br>
+            <input type="checkbox" id="tamil" name="subject[]" value="Tamil" {{ in_array("Tamil", json_decode($student->subject)) ? 'checked' : ''}}>
+            <label for="tamil"> Tamil</label><br>
+            <input type="checkbox" id="maths" name="subject[]" value="Maths" {{ in_array("Maths", json_decode($student->subject)) ? 'checked' : ''}}>
+            <label for="maths"> Maths</label><br>
+            <input type="checkbox" id="english" name="subject[]" value="English" {{ in_array("English", json_decode($student->subject)) ? 'checked' : ''}}>
+            <label for="english"> English</label><br><br>
 
   <label for="dob">DOB :</label>
   <input type="date" id="dob" name="dob" value="{{$student->dob}}"><br><br>
@@ -50,6 +50,7 @@
 <input type="tel" id="phone" name="phone" value="{{$student->mobile}}"><br><br>
 
   <input type="submit" value="Update">
+  <button><a href="{{route('students.index')}}">Back</a></button><br><br>
 </form> 
 </body>
 </html>

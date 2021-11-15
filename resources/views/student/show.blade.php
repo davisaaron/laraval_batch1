@@ -27,6 +27,9 @@
     
   
     </table>
+    <br><br>
+
+      
 
     <button><a href="{{route('students.index')}}">Back</a></button><br><br>
 </body>
