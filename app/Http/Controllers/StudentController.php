@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use Mockery\Matcher\Subset;
+use Carbon\Carbon;
+
+
+ 
+
+
 
 class StudentController extends Controller
 {
@@ -38,6 +44,16 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // public function rules() {
+    //     return [
+    //       'dob' => [
+    //         'required',
+    //         'date_format:Y-m-d',
+    //         'before:' . Carbon::now()->subYears(18)->format('Y-m-d')
+    //       ],
+    //     ];
+    //   }
+      
     public function store(Request $request)
     {
         //
@@ -47,8 +63,23 @@ class StudentController extends Controller
         $grade=$request->input('grade');
         $address=$request->input('address');
         $subject=json_encode($request['subject']);
-        
+
         $dob=$request->input('dob');
+
+       
+          $request->validate([
+            'dob' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                   $now = Carbon::now();
+                   $userDob = Carbon::parse($value);
+                   if ($userDob->diffInYears($now) <= 18) {
+                       $fail('You are less than 18 years old');
+                     
+                   }
+                },
+             ]
+            ]);
         $email=$request->input('email');
         $phone=$request->input('phone');
        
@@ -65,8 +96,10 @@ class StudentController extends Controller
         $student->mobile=$phone;
 
         $student->save();
-        $student=Student::all();
-        return view('student.index',compact('student'));
+        // $student=Student::all();
+        // return view('student.index',compact('student'));
+        return redirect()->route('students.index');
+
       
     }
 
@@ -116,6 +149,19 @@ class StudentController extends Controller
         $subject=json_encode($request->input('subject'));
         
         $dob=$request->input('dob');
+        $request->validate([
+            'dob' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                   $now = Carbon::now();
+                   $userDob = Carbon::parse($value);
+                   if ($userDob->diffInYears($now) <= 18) {
+                       $fail('You are less than 18 years old');
+                     
+                   }
+                },
+             ]
+            ]);
         $email=$request->input('email');
         $phone=$request->input('phone');
        
