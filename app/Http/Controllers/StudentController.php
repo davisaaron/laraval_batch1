@@ -7,11 +7,6 @@ use App\Models\Student;
 use Mockery\Matcher\Subset;
 use Carbon\Carbon;
 
-
- 
-
-
-
 class StudentController extends Controller
 {
     /**
@@ -44,15 +39,7 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function rules() {
-    //     return [
-    //       'dob' => [
-    //         'required',
-    //         'date_format:Y-m-d',
-    //         'before:' . Carbon::now()->subYears(18)->format('Y-m-d')
-    //       ],
-    //     ];
-    //   }
+  
       
     public function store(Request $request)
     {
@@ -190,8 +177,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
-                
+        //       
         $student=Student::find($id);
         $student->delete();
         return redirect()->route('students.index');

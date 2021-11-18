@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\PhoneController;
+use App\Http\Controllers\GradeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +25,6 @@ Route::get('/', function () {
 //Route::resource('employees',EmployeeController::class);
 Route::resource('employees',EmployeeController::class);
 Route::resource('students',StudentController::class);
+Route::resource('grades',GradeController::class);
+Route::resource('subjects',SubjectController::class);
+Route::resource('phones',PhoneController::class);

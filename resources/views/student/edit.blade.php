@@ -8,6 +8,15 @@
 </head>
 <body>
   <h1>Edit Students</h1>
+  @if($errors->any())
+  <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+  @endif
 <form action="{{route('students.update',$student->id)}}" method=post>
     @csrf
     @method('put')
