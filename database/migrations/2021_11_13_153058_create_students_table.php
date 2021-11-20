@@ -26,7 +26,7 @@ class CreateStudentsTable extends Migration
             $table->string('dob');
             $table->string('email');
             $table->string('mobile');
-            // $table->string('mobile_id');
+            $table->integer('mobile_id')->nullable();
             $table->timestamps();
         });
     }

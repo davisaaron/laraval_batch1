@@ -15,7 +15,7 @@
     <div class="container" style="margin-top: 50px;">
         <div class="row">
             <div class="col-md-10">
-                <h2 style="color: blueviolet"><b> Staff Profile </b></h2>
+                <h2 style="color: blueviolet"><b> Student Profile </b></h2>
             </div>
             <div class="col-md-2">
                 <a class="btn btn-primary btn-lg" href="{{ route('students.index') }}"> Back</a>
@@ -30,7 +30,7 @@
                     
                     <div class="col-md-8">
                         <div class="card-body">
-                        <h4 class="card-title">Staff Profile</h4>
+                        <h4 class="card-title">Student Profile</h4>
                         <h6>First Name: {{$student->first_name}}</h6>
                         <h6>Last Name:{{$student->last_name}}</h6>
                         <h6>Gender:{{$student->gender}}</h6>
@@ -38,25 +38,12 @@
                         <h6>Grade: {{$student->grade}}</h6>
                         <h6>Address: {{$student->address}}</h6>
                         <h6>Email Address: {{$student->email}}</h6>
-                        <h6>Mobile No: {{$student->email}}</h6>
+                        <h6>Mobile No: {{$student->mobile}}</h6>
                         <h6>Subjects: {{$student->subject}}</h6>
                         </div>
+                        
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="well">
-                <dl class="dl-horizontal">
-                    <label>Created At:</label>
-                    <p>{{ date('M j,Y h:ia', strtotime($student->created_at)) }}</p>
-                </dl>
-                <dl class="dl-horizontal">
-                    <label>Last Updated:</label>
-                    <p>{{ date('M j,Y h:ia', strtotime($student->updated_at)) }}</p>
-                </dl>
-                <hr>
-                <div class="row">
+                    <div class="row">
                     <div class="col-sm-6">
                         <a href="{{ route('students.edit',$student->id) }}" class="btn btn-success btn-sm">Edit</a>
                       
@@ -70,6 +57,21 @@
                         </form>
                     </div>
                 </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well">
+                <!-- <dl class="dl-horizontal">
+                    <label>Created At:</label>
+                    <p>{{ date('M j,Y h:ia', strtotime($student->created_at)) }}</p>
+                </dl>
+                <dl class="dl-horizontal">
+                    <label>Last Updated:</label>
+                    <p>{{ date('M j,Y h:ia', strtotime($student->updated_at)) }}</p>
+                </dl> -->
+                
+                
             </div>
         </div>
     </div>

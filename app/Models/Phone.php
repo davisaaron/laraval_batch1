@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Phone extends Model
 {
     use HasFactory;
+    public function Student(){
+        return $this->hasOne(Student::class);
+    }
 }
