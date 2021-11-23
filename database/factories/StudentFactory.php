@@ -23,7 +23,7 @@ class StudentFactory extends Factory
            
             'first_name'=>$this->faker->firstName,
             'last_name'=>$this->faker->lastName,
-            'gender'=>$this->faker->randomElement(['male', 'female']),
+            'gender'=>$this->faker->randomElement(['male', 'female']), 
             'grade'=>$this->faker->randomElement(['1', '2','3','4']),
             'address'=>$this->faker->address,
             'subject'=>$this->faker->randomElement(['maths', 'female']),
