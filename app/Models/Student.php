@@ -12,5 +12,11 @@ class Student extends Model
     public function phone(){
         return $this->belongsTo(Phone::class);
     }
+    public function grade(){
+        return $this->belongsTo(Grade::class);
+    }
+    public function subjects(){
+        return $this->belongsToMany(Subject::class);
+    }
 }
 

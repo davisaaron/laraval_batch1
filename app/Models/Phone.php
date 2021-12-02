@@ -11,4 +11,8 @@ class Phone extends Model
     public function Student(){
         return $this->hasOne(Student::class);
     }
+    public function studentPhone()
+    {
+        return $this->hasOneThrough(Student::class,Phone::class);
+    }
 }

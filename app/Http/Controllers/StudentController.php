@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grade;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Subject;
 use Mockery\Matcher\Subset;
 use Carbon\Carbon;
 
@@ -30,7 +32,9 @@ class StudentController extends Controller
     public function create()
     {
         //
-        return view('student.create');
+        $grades=Grade::all();
+        $subjects=Subject::all();
+        return view('student.create',compact('grades','subjects'));
     }
 
     /**
@@ -39,8 +43,8 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-  
-      
+
+
     public function store(Request $request)
     {
         //
@@ -53,7 +57,7 @@ class StudentController extends Controller
 
         $dob=$request->input('dob');
 
-       
+
           $request->validate([
             'dob' => [
                 'required',
@@ -62,14 +66,14 @@ class StudentController extends Controller
                    $userDob = Carbon::parse($value);
                    if ($userDob->diffInYears($now) <= 18) {
                        $fail('You are less than 18 years old');
-                     
+
                    }
                 },
              ]
             ]);
         $email=$request->input('email');
         $phone=$request->input('phone');
-       
+
 
         $student=new Student();
         $student->first_name=$fname;
@@ -87,7 +91,7 @@ class StudentController extends Controller
         // return view('student.index',compact('student'));
         return redirect()->route('students.index');
 
-      
+
     }
 
     /**
@@ -134,7 +138,7 @@ class StudentController extends Controller
         $grade=$request->input('grade');
         $address=$request->input('address');
         $subject=json_encode($request->input('subject'));
-        
+
         $dob=$request->input('dob');
         $request->validate([
             'dob' => [
@@ -144,14 +148,14 @@ class StudentController extends Controller
                    $userDob = Carbon::parse($value);
                    if ($userDob->diffInYears($now) <= 18) {
                        $fail('You are less than 18 years old');
-                     
+
                    }
                 },
              ]
             ]);
         $email=$request->input('email');
         $phone=$request->input('phone');
-       
+
 
         $student=Student::find($id);
         $student->first_name=$fname;
@@ -177,7 +181,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //       
+        //
         $student=Student::find($id);
         $student->delete();
         return redirect()->route('students.index');

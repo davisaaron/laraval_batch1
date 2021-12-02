@@ -17,7 +17,7 @@
           margin:auto;
         }
         </style>
-  
+
 </head>
 <body>
   @if($errors->any())
@@ -42,36 +42,39 @@
     @csrf
   <label for="fname">First name:</label>
   <input type="text" id="fname" name="fname" value="{{old('fname')}}"><br><br>
-  
+
   <label for="lname">Last name:</label>
   <input type="text" id="lname" name="lname" value="{{old('lname')}}"><br><br>
-  
+
   <label for="gender">Gender</label><br>
   <input type="radio" name="gender"  id="male" value="male" {{(old('gender') == 'male') ? 'checked' : ''}}> <label for="male">Male</label>
 	<input type="radio" name="gender"  id="female" value="female" {{(old('gender') == 'female') ? 'checked' : ''}}> <label for="female">Female</label><br><br>
-  
+
   <label for="grade">Grade </label>
   <select name="grade" id="grade" >
-  <option value="1"{{(old('grade') === '1') ? 'Selected' : ''}}>1</option>
-  <option value="2"{{(old('grade') === '2') ? 'Selected' : ''}}>2</option>
-  <option value="3"{{(old('grade') === '3') ? 'Selected' : ''}}>3</option>
-  <option value="4"{{(old('grade') === '4') ? 'Selected' : ''}}>4</option>
+  @foreach($grades as $grade)
+  <option value="{{$grade->name}}">{{$grade->name}}</option>
+  @endforeach
   </select><br><br>
 
   <label for="address">Address</label>
 	<textarea id="address" name="address" value="">{{old('address')}}</textarea><br><br>
 
   <label for="Subjects">Subjects</label><br>
-  <input type="checkbox" id="tamil" name="subject[]" value="Tamil" {{ (is_array(old('subject')) && in_array('Tamil' , old('subject'))) ? ' checked' : '' }}>
+  @foreach ($subjects as $subject )
+  <input type="checkbox" id="subject" name="subject[]" value="{{$subject->name}}" >
+  <label for="subject"> {{$subject->name}}</label><br>
+  @endforeach
+  {{-- <input type="checkbox" id="tamil" name="subject[]" value="Tamil" {{ (is_array(old('subject')) && in_array('Tamil' , old('subject'))) ? ' checked' : '' }}>
   <label for="tamil"> Tamil</label><br>
   <input type="checkbox" id="maths" name="subject[]" value="Maths" {{ (is_array(old('subject')) && in_array('Maths', old('subject'))) ? ' checked' : '' }}>
   <label for="maths"> Maths</label><br>
   <input type="checkbox" id="english" name="subject[]" value="English" {{ (is_array(old('subject')) && in_array('English', old('subject'))) ? ' checked' : '' }}>
-  <label for="english"> English</label><br><br>
+  <label for="english"> English</label><br><br> --}}
 
   <label for="dob">DOB :</label>
   <input type="date" id="dob" name="dob" ><br><br>
-  
+
   <label for="email">Email :</label>
   <input type="email" id="email" name="email" value="{{old('email')}}"><br><br>
 
@@ -79,6 +82,6 @@
 <input type="tel" id="phone" name="phone" value="{{old('phone')}}"><br><br>
 
   <input type="submit"   class="btn btn-primary" value="Submit">
-</form> 
+</form>
 </body>
 </html>
