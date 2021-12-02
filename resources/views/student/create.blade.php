@@ -55,22 +55,21 @@
   @foreach($grades as $grade)
   <option value="{{$grade->name}}">{{$grade->name}}</option>
   @endforeach
-  </select><br><br>
+  </select>
+  <button><a href="{{route('grades.create')}}">Create Grade</a></button><br><br>
 
   <label for="address">Address</label>
 	<textarea id="address" name="address" value="">{{old('address')}}</textarea><br><br>
 
-  <label for="Subjects">Subjects</label><br>
+  <label for="Subjects">Subjects</label>
+  <button><a href="{{route('subjects.create')}}">Create Subjects</a></button>
+  <br>
   @foreach ($subjects as $subject )
   <input type="checkbox" id="subject" name="subject[]" value="{{$subject->name}}" >
   <label for="subject"> {{$subject->name}}</label><br>
   @endforeach
-  {{-- <input type="checkbox" id="tamil" name="subject[]" value="Tamil" {{ (is_array(old('subject')) && in_array('Tamil' , old('subject'))) ? ' checked' : '' }}>
-  <label for="tamil"> Tamil</label><br>
-  <input type="checkbox" id="maths" name="subject[]" value="Maths" {{ (is_array(old('subject')) && in_array('Maths', old('subject'))) ? ' checked' : '' }}>
-  <label for="maths"> Maths</label><br>
-  <input type="checkbox" id="english" name="subject[]" value="English" {{ (is_array(old('subject')) && in_array('English', old('subject'))) ? ' checked' : '' }}>
-  <label for="english"> English</label><br><br> --}}
+<br><br>
+
 
   <label for="dob">DOB :</label>
   <input type="date" id="dob" name="dob" ><br><br>

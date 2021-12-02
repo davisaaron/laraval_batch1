@@ -54,7 +54,8 @@
   <label for="grade">Grade</label>
   <select name="grade" id="grade">
   @foreach($grades as $grade)
-  <option value="{{$grade->name}}"{{($student->$grade === 'name') ? 'Selected' : ''}}>{{$grade->name}}</option>
+  <option value="{{$grade->name}}"{{($student->grade === "$grade->name") ? 'Selected' : ''}}>{{$grade->name}}</option>
+
   @endforeach
 </select><br><br>
 
@@ -62,12 +63,16 @@
 	<textarea id="address" name="address" value="">{{$student->address}}</textarea><br><br>
   {{-- {{$subjects = json_decode($student->subject);}}  --}}
   <label for="Subjects">Subjects</label><br>
-            <input type="checkbox" id="tamil" name="subject[]" value="Tamil" {{ in_array("Tamil", json_decode($student->subject)) ? 'checked' : ''}}>
+  @foreach ($subjects as $subject)
+  <input type="checkbox" id="subject" name="subject[]" value="{{$subject->name}}" {{ in_array("$subject->name", json_decode($student->subject )) ? 'checked' : ''}}>
+  <label for="subject"> {{$subject->name}}</label><br>
+  @endforeach
+            {{-- <input type="checkbox" id="tamil" name="subject[]" value="Tamil" {{ in_array("Tamil", json_decode($student->subject)) ? 'checked' : ''}}>
             <label for="tamil"> Tamil</label><br>
             <input type="checkbox" id="maths" name="subject[]" value="Maths" {{ in_array("Maths", json_decode($student->subject)) ? 'checked' : ''}}>
             <label for="maths"> Maths</label><br>
             <input type="checkbox" id="english" name="subject[]" value="English" {{ in_array("English", json_decode($student->subject)) ? 'checked' : ''}}>
-            <label for="english"> English</label><br><br>
+            <label for="english"> English</label><br><br> --}}
 
   <label for="dob">DOB :</label>
   <input type="date" id="dob" name="dob" value="{{$student->dob}}"><br><br>

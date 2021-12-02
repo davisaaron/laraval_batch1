@@ -105,6 +105,7 @@ class StudentController extends Controller
         //
         $student=Student::find($id);
         // return $employee;
+
        return view('student.show',compact('student'));
     }
 
@@ -118,8 +119,10 @@ class StudentController extends Controller
     {
         //
         $student=Student::find($id);
+        $grades=Grade::all();
+        $subjects=Subject::all();
         // return $employee;
-       return view('student.edit',compact('student'));
+       return view('student.edit',compact('student','grades','subjects'));
     }
 
     /**
